@@ -22,6 +22,13 @@ firebase.auth().onAuthStateChanged(async function(user) {
       // Step 1:    POST fetch the create_post endpoint. Send the currently logged-in
       //            user's uid and username, and the image URL from the form in the
       //            POST request's body.
+      
+
+
+    
+
+
+
       // Step 2-5:  Implement the lambda function in create_post.js
       // Step 6:    The lambda should return an Object of data with information on the
       //            the post, including the newly created post's id and likes. Use this
@@ -104,6 +111,21 @@ async function renderPost(postId, username, imageUrl, likes) {
     //            Send the post's id and the user's id along in the body of the request
     //            so that the backend can create the like for the correct post/user combination.
     //            Be sure to use `JSON.stringify()` for the body object.
+
+    let response = await fetch('http://localhost:8888/.netlify/functions/like', {
+      method: 'POST',
+      body: JSON.stringify({
+        postID: postId,
+        userID: currentUserId
+      })
+    })
+    console.log.response
+
+
+
+
+
+
     // Step 2-5:  Implement the lambda function in like.js
     // Step 6:    Wrap the code below that visually increments the likes count in conditional logic
     //            so that it doesn't increment unless the backend added the like. Use either

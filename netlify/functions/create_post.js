@@ -10,6 +10,9 @@ exports.handler = async function(event) {
   //          in the POST request, and assign to variables. Use
   //          console.log if necessary, to ensure the values are what
   //          you're expecting.
+  console.log(event)
+
+
   // Step 3:  Construct an object of data which you will send to Firestore
   //          in step 4 – this object should include the user ID, username,
   //          image URL, and a "created" timestamp – use the built-in
